@@ -12,9 +12,43 @@
             box-sizing: border-box;
         }
         
+        :root {
+            /* Light theme (default) */
+            --bg-gradient-start: #ff758c;
+            --bg-gradient-middle: #ff7eb3;
+            --bg-gradient-end: #a18cd1;
+            --container-bg: rgba(255, 255, 255, 0.95);
+            --text-color: #333;
+            --text-secondary: #666;
+            --question-box-bg: linear-gradient(135deg, rgba(255, 240, 245, 0.9), rgba(240, 248, 255, 0.9));
+            --question-box-border: rgba(255, 51, 102, 0.2);
+            --shadow-color: rgba(0, 0, 0, 0.2);
+            --heart-color: #ff3366;
+            --message-bg: #fff9fb;
+            --message-border: #ff3366;
+            --footer-color: #666;
+        }
+        
+        [data-theme="dark"] {
+            /* Dark theme */
+            --bg-gradient-start: #1a1a2e;
+            --bg-gradient-middle: #16213e;
+            --bg-gradient-end: #0f3460;
+            --container-bg: rgba(30, 30, 46, 0.95);
+            --text-color: #f0f0f0;
+            --text-secondary: #b0b0b0;
+            --question-box-bg: linear-gradient(135deg, rgba(40, 40, 60, 0.9), rgba(50, 50, 80, 0.9));
+            --question-box-border: rgba(255, 100, 150, 0.3);
+            --shadow-color: rgba(0, 0, 0, 0.4);
+            --heart-color: #ff6699;
+            --message-bg: #2a2a3e;
+            --message-border: #ff3366;
+            --footer-color: #aaa;
+        }
+        
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(-45deg, #ff758c, #ff7eb3, #a18cd1);
+            background: linear-gradient(-45deg, var(--bg-gradient-start), var(--bg-gradient-middle), var(--bg-gradient-end));
             background-size: 400% 400%;
             min-height: 100vh;
             display: flex;
@@ -22,12 +56,48 @@
             align-items: center;
             animation: gradientBG 15s ease infinite;
             padding: 20px;
+            color: var(--text-color);
+            transition: background 0.5s ease, color 0.3s ease;
         }
         
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
+        }
+        
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--container-bg);
+            border: 2px solid var(--heart-color);
+            border-radius: 50px;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            z-index: 1001;
+            transition: all 0.3s;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .theme-toggle:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px var(--shadow-color);
+        }
+        
+        .theme-icon {
+            font-size: 1.5rem;
+            transition: transform 0.5s ease;
+        }
+        
+        .theme-text {
+            font-size: 0.9rem;
         }
         
         /* Floating Hearts */
@@ -44,7 +114,7 @@
             font-size: 20px;
             opacity: 0.3;
             animation: floatHeart 15s infinite linear;
-            color: #ff3366;
+            color: var(--heart-color);
         }
         
         @keyframes floatHeart {
@@ -61,10 +131,10 @@
         }
         
         .container {
-            background: rgba(255, 255, 255, 0.95);
+            background: var(--container-bg);
             padding: 40px 30px;
             border-radius: 30px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2),
+            box-shadow: 0 25px 50px var(--shadow-color),
                         0 0 80px rgba(255, 51, 102, 0.2);
             text-align: center;
             max-width: 600px;
@@ -73,6 +143,7 @@
             background-clip: padding-box;
             animation: borderGlow 4s infinite alternate;
             backdrop-filter: blur(5px);
+            transition: background 0.5s ease, box-shadow 0.5s ease;
         }
         
         @keyframes borderGlow {
@@ -85,9 +156,10 @@
         }
         
         .header h2 {
-            color: #666;
+            color: var(--text-secondary);
             font-size: 1.2rem;
             margin-bottom: 15px;
+            transition: color 0.3s ease;
         }
         
         .name {
@@ -123,20 +195,22 @@
         }
         
         .question-box {
-            background: linear-gradient(135deg, rgba(255, 240, 245, 0.9), rgba(240, 248, 255, 0.9));
+            background: var(--question-box-bg);
             padding: 30px 25px;
             border-radius: 25px;
             margin: 30px 0;
-            border: 2px solid rgba(255, 51, 102, 0.2);
+            border: 2px solid var(--question-box-border);
             box-shadow: 0 10px 25px rgba(255, 51, 102, 0.1);
+            transition: background 0.5s ease, border 0.5s ease;
         }
         
         .question {
             font-size: 2.2rem;
-            color: #333;
+            color: var(--text-color);
             font-weight: 600;
             margin-bottom: 15px;
             line-height: 1.4;
+            transition: color 0.3s ease;
         }
         
         .question span {
@@ -191,9 +265,10 @@
         
         .footer {
             margin-top: 30px;
-            color: #666;
+            color: var(--footer-color);
             font-size: 0.9rem;
             font-style: italic;
+            transition: color 0.3s ease;
         }
         
         /* Hidden Messages */
@@ -202,11 +277,12 @@
             margin-top: 30px;
             padding: 30px;
             border-radius: 20px;
-            background: #fff9fb;
-            border: 2px dashed #ff3366;
+            background: var(--message-bg);
+            border: 2px dashed var(--message-border);
             text-align: left;
             line-height: 1.7;
             animation: fadeIn 0.5s ease;
+            transition: background 0.5s ease, border 0.5s ease;
         }
         
         @keyframes fadeIn {
@@ -218,6 +294,8 @@
             margin-bottom: 15px;
             padding-left: 10px;
             border-left: 2px solid #ff99bb;
+            color: var(--text-color);
+            transition: color 0.3s ease;
         }
         
         .sathyam {
@@ -253,10 +331,10 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: rgba(255, 255, 255, 0.95);
+            background: var(--container-bg);
             padding: 12px 20px;
             border-radius: 50px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px var(--shadow-color);
             display: flex;
             align-items: center;
             gap: 12px;
@@ -264,11 +342,12 @@
             border: 2px solid #ff3366;
             z-index: 1000;
             transition: all 0.3s;
+            color: var(--text-color);
         }
         
         .music-control:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 35px var(--shadow-color);
         }
         
         .music-icon {
@@ -278,7 +357,6 @@
         
         .music-text {
             font-weight: 600;
-            color: #333;
         }
         
         /* YouTube Player */
@@ -290,7 +368,7 @@
             height: 180px;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 35px var(--shadow-color);
             display: none;
             z-index: 999;
             border: 3px solid #ff3366;
@@ -336,6 +414,12 @@
                 gap: 15px;
             }
             
+            .theme-toggle {
+                top: 15px;
+                right: 15px;
+                padding: 8px 12px;
+            }
+            
             .youtube-player {
                 width: 250px;
                 height: 150px;
@@ -368,6 +452,14 @@
                 align-items: center;
             }
             
+            .theme-toggle .theme-text {
+                display: none;
+            }
+            
+            .theme-toggle {
+                padding: 10px;
+            }
+            
             .music-control {
                 bottom: 15px;
                 right: 15px;
@@ -384,6 +476,12 @@
     </style>
 </head>
 <body>
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle" id="themeToggle">
+        <div class="theme-icon" id="themeIcon">🌙</div>
+        <div class="theme-text" id="themeText">Dark Mode</div>
+    </div>
+    
     <!-- Background Hearts -->
     <div class="hearts-bg" id="heartsBg"></div>
     
@@ -419,7 +517,7 @@
             <div class="question">
                 Do you <span>love</span> me? 💌
             </div>
-            <p style="color: #666; font-size: 1.1rem; margin-top: 15px;">
+            <p style="color: var(--text-secondary); font-size: 1.1rem; margin-top: 15px;">
                 ✨ Your answer will make my world complete ✨
             </p>
         </div>
@@ -502,7 +600,7 @@
         </div>
         
         <!-- Hidden Apology Message -->
-        <div class="hidden-message" id="apologyMessage" style="border-color: #667eea; background: #f8f9fa;">
+        <div class="hidden-message" id="apologyMessage" style="border-color: #667eea; background: var(--message-bg);">
             <div class="message-line">
                 Nan vegatichuu... Nee <span style="color: #667eea; font-weight: 600;">"YES"</span> ane click akiyee annu. Saram ella...
             </div>
@@ -538,6 +636,49 @@
     </div>
 
     <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        const body = document.body;
+        
+        // Check for saved theme preference or default to light
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.setAttribute('data-theme', 'dark');
+            themeIcon.textContent = '☀️';
+            themeText.textContent = 'Light Mode';
+        }
+        
+        // Toggle theme function
+        themeToggle.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'dark') {
+                // Switch to light theme
+                body.removeAttribute('data-theme');
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Dark Mode';
+                localStorage.setItem('theme', 'light');
+                
+                // Add animation to icon
+                themeIcon.style.transform = 'rotate(360deg)';
+                setTimeout(() => {
+                    themeIcon.style.transform = 'rotate(0deg)';
+                }, 500);
+            } else {
+                // Switch to dark theme
+                body.setAttribute('data-theme', 'dark');
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Light Mode';
+                localStorage.setItem('theme', 'dark');
+                
+                // Add animation to icon
+                themeIcon.style.transform = 'rotate(360deg)';
+                setTimeout(() => {
+                    themeIcon.style.transform = 'rotate(0deg)';
+                }, 500);
+            }
+        });
+        
         // Create background hearts
         const heartsBg = document.getElementById('heartsBg');
         for (let i = 0; i < 15; i++) {
@@ -580,7 +721,7 @@
                 // Hide and pause music
                 youtubePlayer.style.display = 'none';
                 musicText.textContent = "Play Music";
-                musicControl.style.background = "rgba(255, 255, 255, 0.95)";
+                musicControl.style.background = "";
                 
                 // Pause the video
                 if (youtubeIframe) {
@@ -738,10 +879,10 @@
                 message.style.top = '20%';
                 message.style.left = '50%';
                 message.style.transform = 'translate(-50%, -50%)';
-                message.style.background = 'rgba(255, 255, 255, 0.95)';
+                message.style.background = 'var(--container-bg)';
                 message.style.padding = '20px 30px';
                 message.style.borderRadius = '15px';
-                message.style.boxShadow = '0 15px 35px rgba(0,0,0,0.3)';
+                message.style.boxShadow = '0 15px 35px var(--shadow-color)';
                 message.style.zIndex = '10000';
                 message.style.textAlign = 'center';
                 message.style.fontWeight = '600';
