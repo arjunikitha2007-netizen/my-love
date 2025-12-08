@@ -1,2 +1,961 @@
-I Am Sorry 🙏🙏
-I Am Sorry 🙏🙏
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Anagha 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Light theme (default) */
+            --bg-gradient-start: #ff758c;
+            --bg-gradient-middle: #ff7eb3;
+            --bg-gradient-end: #a18cd1;
+            --container-bg: rgba(255, 255, 255, 0.95);
+            --text-color: #333;
+            --text-secondary: #666;
+            --question-box-bg: linear-gradient(135deg, rgba(255, 240, 245, 0.9), rgba(240, 248, 255, 0.9));
+            --question-box-border: rgba(255, 51, 102, 0.2);
+            --shadow-color: rgba(0, 0, 0, 0.2);
+            --heart-color: #ff3366;
+            --message-bg: #fff9fb;
+            --message-border: #ff3366;
+            --footer-color: #666;
+        }
+        
+        [data-theme="dark"] {
+            /* Dark theme */
+            --bg-gradient-start: #1a1a2e;
+            --bg-gradient-middle: #16213e;
+            --bg-gradient-end: #0f3460;
+            --container-bg: rgba(30, 30, 46, 0.95);
+            --text-color: #f0f0f0;
+            --text-secondary: #b0b0b0;
+            --question-box-bg: linear-gradient(135deg, rgba(40, 40, 60, 0.9), rgba(50, 50, 80, 0.9));
+            --question-box-border: rgba(255, 100, 150, 0.3);
+            --shadow-color: rgba(0, 0, 0, 0.4);
+            --heart-color: #ff6699;
+            --message-bg: #2a2a3e;
+            --message-border: #ff3366;
+            --footer-color: #aaa;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, var(--bg-gradient-start), var(--bg-gradient-middle), var(--bg-gradient-end));
+            background-size: 400% 400%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: gradientBG 15s ease infinite;
+            padding: 20px;
+            color: var(--text-color);
+            transition: background 0.5s ease, color 0.3s ease;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--container-bg);
+            border: 2px solid var(--heart-color);
+            border-radius: 50px;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            z-index: 1001;
+            transition: all 0.3s;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .theme-toggle:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px var(--shadow-color);
+        }
+        
+        .theme-icon {
+            font-size: 1.5rem;
+            transition: transform 0.5s ease;
+        }
+        
+        .theme-text {
+            font-size: 0.9rem;
+        }
+        
+        /* Floating Hearts */
+        .hearts-bg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .heart-bg {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0.3;
+            animation: floatHeart 15s infinite linear;
+            color: var(--heart-color);
+        }
+        
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .container {
+            background: var(--container-bg);
+            padding: 40px 30px;
+            border-radius: 30px;
+            box-shadow: 0 25px 50px var(--shadow-color),
+                        0 0 80px rgba(255, 51, 102, 0.2);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            border: 3px solid transparent;
+            background-clip: padding-box;
+            animation: borderGlow 4s infinite alternate;
+            backdrop-filter: blur(5px);
+            transition: background 0.5s ease, box-shadow 0.5s ease;
+        }
+        
+        @keyframes borderGlow {
+            0% { border-image: linear-gradient(45deg, #ff3366, #ff9933) 1; }
+            100% { border-image: linear-gradient(45deg, #33ccff, #ff3366) 1; }
+        }
+        
+        .header {
+            margin-bottom: 30px;
+        }
+        
+        .header h2 {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+        
+        .name {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #ff3366, #33ccff, #ff9933);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: nameGradient 4s ease infinite;
+            font-family: 'Dancing Script', cursive;
+            margin: 15px 0;
+        }
+        
+        @keyframes nameGradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .heart-animation {
+            font-size: 3.5rem;
+            margin: 25px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: heartBeat 2s infinite;
+        }
+        
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .question-box {
+            background: var(--question-box-bg);
+            padding: 30px 25px;
+            border-radius: 25px;
+            margin: 30px 0;
+            border: 2px solid var(--question-box-border);
+            box-shadow: 0 10px 25px rgba(255, 51, 102, 0.1);
+            transition: background 0.5s ease, border 0.5s ease;
+        }
+        
+        .question {
+            font-size: 2.2rem;
+            color: var(--text-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.4;
+            transition: color 0.3s ease;
+        }
+        
+        .question span {
+            color: #ff3366;
+            font-weight: 700;
+        }
+        
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 35px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 18px 40px;
+            font-size: 1.4rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-width: 180px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+        }
+        
+        .yes-btn {
+            background: linear-gradient(135deg, #00b894, #00a085);
+            color: white;
+        }
+        
+        .yes-btn:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 180, 148, 0.4);
+        }
+        
+        .no-btn {
+            background: linear-gradient(135deg, #ff4757, #ff3742);
+            color: white;
+            position: relative;
+        }
+        
+        .no-btn:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(255, 71, 87, 0.4);
+        }
+        
+        .footer {
+            margin-top: 30px;
+            color: var(--footer-color);
+            font-size: 0.9rem;
+            font-style: italic;
+            transition: color 0.3s ease;
+        }
+        
+        /* Hidden Messages */
+        .hidden-message {
+            display: none;
+            margin-top: 30px;
+            padding: 30px;
+            border-radius: 20px;
+            background: var(--message-bg);
+            border: 2px dashed var(--message-border);
+            text-align: left;
+            line-height: 1.7;
+            animation: fadeIn 0.5s ease;
+            transition: background 0.5s ease, border 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .message-line {
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 2px solid #ff99bb;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+        
+        .sathyam {
+            color: #ff3366;
+            font-weight: bold;
+            font-style: italic;
+        }
+        
+        .highlight {
+            color: #ff0066;
+            font-weight: 600;
+        }
+        
+        .close-btn {
+            margin-top: 20px;
+            padding: 10px 25px;
+            background: #4a69bd;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .close-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(74, 105, 189, 0.3);
+        }
+        
+        /* Music Controls */
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--container-bg);
+            padding: 12px 20px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            border: 2px solid #ff3366;
+            z-index: 1000;
+            transition: all 0.3s;
+            color: var(--text-color);
+        }
+        
+        .music-control:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px var(--shadow-color);
+        }
+        
+        .music-icon {
+            font-size: 1.5rem;
+            color: #ff3366;
+        }
+        
+        .music-text {
+            font-weight: 600;
+        }
+        
+        /* YouTube Player */
+        .youtube-player {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 300px;
+            height: 180px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px var(--shadow-color);
+            display: none;
+            z-index: 999;
+            border: 3px solid #ff3366;
+        }
+        
+        .youtube-player iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 650px) {
+            .container {
+                padding: 30px 20px;
+                border-radius: 25px;
+            }
+            
+            .name {
+                font-size: 2.8rem;
+            }
+            
+            .heart-animation {
+                font-size: 2.8rem;
+                gap: 15px;
+            }
+            
+            .question {
+                font-size: 1.8rem;
+            }
+            
+            .question-box {
+                padding: 25px 20px;
+            }
+            
+            .btn {
+                padding: 15px 30px;
+                font-size: 1.2rem;
+                min-width: 150px;
+            }
+            
+            .buttons-container {
+                gap: 15px;
+            }
+            
+            .theme-toggle {
+                top: 15px;
+                right: 15px;
+                padding: 8px 12px;
+            }
+            
+            .youtube-player {
+                width: 250px;
+                height: 150px;
+                right: 10px;
+                bottom: 70px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .name {
+                font-size: 2.2rem;
+            }
+            
+            .heart-animation {
+                font-size: 2.2rem;
+            }
+            
+            .question {
+                font-size: 1.5rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 1.1rem;
+                min-width: 130px;
+            }
+            
+            .buttons-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .theme-toggle .theme-text {
+                display: none;
+            }
+            
+            .theme-toggle {
+                padding: 10px;
+            }
+            
+            .music-control {
+                bottom: 15px;
+                right: 15px;
+                padding: 10px 15px;
+            }
+            
+            .youtube-player {
+                width: 200px;
+                height: 120px;
+                right: 10px;
+                bottom: 65px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle" id="themeToggle">
+        <div class="theme-icon" id="themeIcon">🌙</div>
+        <div class="theme-text" id="themeText">Dark Mode</div>
+    </div>
+    
+    <!-- Background Hearts -->
+    <div class="hearts-bg" id="heartsBg"></div>
+    
+    <!-- YouTube Music Player (Hidden by default) -->
+    <div class="youtube-player" id="youtubePlayer">
+        <iframe 
+            src="https://www.youtube.com/embed/wde4CvidB2A?autoplay=0&controls=1&modestbranding=1&rel=0&showinfo=0"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
+    
+    <!-- Music Control -->
+    <div class="music-control" id="musicControl">
+        <div class="music-icon">🎵</div>
+        <div class="music-text" id="musicText">Play Music</div>
+    </div>
+    
+    <div class="container">
+        <div class="header">
+            <h2>A Special Heart's Question For</h2>
+            <div class="name">Anagha</div>
+        </div>
+        
+        <div class="heart-animation">
+            <span style="color: #ff3366;">❤️</span>
+            <span style="color: #33ccff;">💖</span>
+            <span style="color: #ff9933;">💗</span>
+        </div>
+        
+        <div class="question-box">
+            <div class="question">
+                Do you <span>love</span> me? 💌
+            </div>
+            <p style="color: var(--text-secondary); font-size: 1.1rem; margin-top: 15px;">
+                ✨ Your answer will make my world complete ✨
+            </p>
+        </div>
+        
+        <div class="buttons-container">
+            <button class="btn yes-btn" id="yesBtn">
+                <span style="font-size: 1.3rem;">✓</span>
+                YES, I DO!
+            </button>
+            
+            <button class="btn no-btn" id="noBtn">
+                <span style="font-size: 1.3rem;">✗</span>
+                NO, SORRY
+            </button>
+        </div>
+        
+        <!-- Hidden Love Message -->
+        <div class="hidden-message" id="loveMessage">
+            <div class="message-line">
+                <strong>Hey Ponhaaa</strong>
+            </div>
+            
+            <div class="message-line">
+                <span class="highlight">I Love You Sooo Much</span>
+            </div>
+            
+            <div class="message-line">
+                <span class="sathyam">Sathyam</span> Parayam... Nintee Kude Nadakumbo Nan anthoo vayangaraa happy ane. Anikke ariyam Ninakke anode Oru Feelings Pollum ella annu.
+            </div>
+            
+            <div class="message-line">
+                But Anikke Agane alla...
+            </div>
+            
+            <div class="message-line">
+                Anikke vtl pollum agane Happy aye erikkar ella.
+            </div>
+            
+            <div class="message-line">
+                Nintee kude Erikumbo Alla... Kude naakumboo vayangara Happy ane. <span class="sathyam">Sathyam</span>.
+            </div>
+            
+            <div class="message-line">
+                Eniiiii... Ninakke Time Venagil Taram. Anikke ariyam Ninakke Age Seen unde annu.
+            </div>
+            
+            <div class="message-line">
+                But Set ayal nine nan ponnu polle nokum. Nan munill vachuu parayan ane ninne... But Ninne kanumbo onnum mindan thonulla, Kude erikkan ane Thonuvaa.
+            </div>
+            
+            <div class="message-line">
+                Athee ane <span class="highlight">Nee class el varumbo anikke anthoo polle ane</span>... Vayangara Happy ane.
+            </div>
+            
+            <div class="message-line">
+                But nine classel vachuu kanumboo anikke nintee kude erikan thonnum... Onnu mindan kothii avum.
+            </div>
+            
+            <div class="message-line">
+                Set ayal <span class="sathyam">Orikallum ninee vittu povulla sathyam, sathyam, sathyam, sathyam, sathyam, sathyam, sathyam</span>...
+            </div>
+            
+            <div class="message-line">
+                <strong>Please Onnu "Love You" Annu paraaa... kallu pedikkam 🥺</strong>
+            </div>
+            
+            <div class="message-line">
+                Ninakke indrast ellagil para... Nan marii taramm 💌
+            </div>
+            
+            <div class="message-line">
+                <span style="color: #ff3366; font-weight: bold;">
+                    Still love you... Forever ❤️
+                </span>
+            </div>
+            
+            <button class="close-btn" onclick="hideLoveMessage()">
+                Close Message
+            </button>
+        </div>
+        
+        <!-- Hidden Apology Message -->
+        <div class="hidden-message" id="apologyMessage" style="border-color: #667eea; background: var(--message-bg);">
+            <div class="message-line">
+                Nan vegatichuu... Nee <span style="color: #667eea; font-weight: 600;">"YES"</span> ane click akiyee annu. Saram ella...
+            </div>
+            
+            <div class="message-line">
+                Ninkke anode onnum ella... <span style="color: #ef4444; font-weight: bold;">sathyam</span> parajal nan ninee manasil aki ella..
+            </div>
+            
+            <div class="message-line">
+                Neee anagill vayangara machure ane... nan anagil agane onnum alla.
+            </div>
+            
+            <div class="message-line">
+                <span style="color: #667eea; font-weight: 600;">Sorry</span> nan anagil nintee kude nadanal... 5 mint nadanal nan happy ane.
+            </div>
+            
+            <div class="message-line">
+                Athee ane nan <span style="color: #ef4444; font-weight: bold;">love you</span> parajeee...
+            </div>
+            
+            <div class="message-line">
+                <strong style="color: #ef4444;">Sorry</strong> 🥺
+            </div>
+            
+            <button class="close-btn" onclick="hideApologyMessage()">
+                Close Message
+            </button>
+        </div>
+        
+        <div class="footer">
+            <p>Made with ❤️ for Anagha</p>
+        </div>
+    </div>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        const body = document.body;
+        
+        // Check for saved theme preference or default to light
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.setAttribute('data-theme', 'dark');
+            themeIcon.textContent = '☀️';
+            themeText.textContent = 'Light Mode';
+        }
+        
+        // Toggle theme function
+        themeToggle.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'dark') {
+                // Switch to light theme
+                body.removeAttribute('data-theme');
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Dark Mode';
+                localStorage.setItem('theme', 'light');
+                
+                // Add animation to icon
+                themeIcon.style.transform = 'rotate(360deg)';
+                setTimeout(() => {
+                    themeIcon.style.transform = 'rotate(0deg)';
+                }, 500);
+            } else {
+                // Switch to dark theme
+                body.setAttribute('data-theme', 'dark');
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Light Mode';
+                localStorage.setItem('theme', 'dark');
+                
+                // Add animation to icon
+                themeIcon.style.transform = 'rotate(360deg)';
+                setTimeout(() => {
+                    themeIcon.style.transform = 'rotate(0deg)';
+                }, 500);
+            }
+        });
+        
+        // Create background hearts
+        const heartsBg = document.getElementById('heartsBg');
+        for (let i = 0; i < 15; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'heart-bg';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDelay = Math.random() * 15 + 's';
+            heart.style.fontSize = (Math.random() * 25 + 15) + 'px';
+            heartsBg.appendChild(heart);
+        }
+
+        // Music Player Functionality
+        const musicControl = document.getElementById('musicControl');
+        const musicText = document.getElementById('musicText');
+        const youtubePlayer = document.getElementById('youtubePlayer');
+        let isMusicPlaying = false;
+        let youtubeIframe;
+
+        // Initialize YouTube iframe
+        function initYouTubePlayer() {
+            youtubeIframe = youtubePlayer.querySelector('iframe');
+        }
+
+        // Toggle music player
+        musicControl.addEventListener('click', function() {
+            if (!isMusicPlaying) {
+                // Show and play music
+                youtubePlayer.style.display = 'block';
+                musicText.textContent = "Pause Music";
+                musicControl.style.background = "rgba(255, 51, 102, 0.1)";
+                
+                // Try to play music (autoplay might be blocked by browser)
+                if (youtubeIframe) {
+                    youtubeIframe.src = youtubeIframe.src.replace("autoplay=0", "autoplay=1");
+                }
+                
+                isMusicPlaying = true;
+            } else {
+                // Hide and pause music
+                youtubePlayer.style.display = 'none';
+                musicText.textContent = "Play Music";
+                musicControl.style.background = "";
+                
+                // Pause the video
+                if (youtubeIframe) {
+                    youtubeIframe.src = youtubeIframe.src.replace("autoplay=1", "autoplay=0");
+                }
+                
+                isMusicPlaying = false;
+            }
+        });
+
+        // Initialize YouTube player
+        initYouTubePlayer();
+
+        // NO button functionality
+        const noBtn = document.getElementById('noBtn');
+        let clickCount = 0;
+        const maxClicks = 5;
+        
+        noBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            clickCount++;
+            
+            if (clickCount >= maxClicks) {
+                // Show apology message after 5 clicks
+                showApologyMessage();
+                clickCount = 0;
+                return;
+            }
+            
+            // Get container dimensions
+            const container = document.querySelector('.container');
+            const btnRect = noBtn.getBoundingClientRect();
+            const containerRect = container.getBoundingClientRect();
+            
+            // Calculate random position within container
+            const maxX = containerRect.width - btnRect.width - 40;
+            const maxY = containerRect.height - btnRect.height - 40;
+            
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+            
+            // Move button
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+            noBtn.style.transition = 'all 0.4s ease';
+            
+            // Change text
+            const messages = [
+                "Are you sure?",
+                "Think again!",
+                "Maybe?",
+                "Try Yes!",
+                "Please?",
+                "Last chance!"
+            ];
+            
+            const messageIndex = Math.min(clickCount - 1, messages.length - 1);
+            noBtn.innerHTML = `<span style="font-size: 1.3rem;">✗</span> ${messages[messageIndex]}`;
+            
+            // Reset after all messages shown
+            if (clickCount >= messages.length) {
+                clickCount = 0;
+            }
+        });
+        
+        // YES button functionality
+        const yesBtn = document.getElementById('yesBtn');
+        yesBtn.addEventListener('click', function() {
+            // Hide other messages
+            document.getElementById('apologyMessage').style.display = 'none';
+            
+            // Show love message
+            showLoveMessage();
+            
+            // Add celebration effect
+            createCelebration();
+            
+            // Auto-play music if not already playing
+            if (!isMusicPlaying) {
+                musicControl.click();
+            }
+        });
+        
+        // Show love message
+        function showLoveMessage() {
+            const loveMessage = document.getElementById('loveMessage');
+            loveMessage.style.display = 'block';
+            
+            // Hide main buttons
+            document.querySelector('.buttons-container').style.display = 'none';
+        }
+        
+        // Hide love message
+        function hideLoveMessage() {
+            document.getElementById('loveMessage').style.display = 'none';
+            document.querySelector('.buttons-container').style.display = 'flex';
+        }
+        
+        // Show apology message
+        function showApologyMessage() {
+            const apologyMessage = document.getElementById('apologyMessage');
+            apologyMessage.style.display = 'block';
+            
+            // Hide main buttons
+            document.querySelector('.buttons-container').style.display = 'none';
+            
+            // Reset NO button
+            noBtn.style.position = 'static';
+            noBtn.innerHTML = '<span style="font-size: 1.3rem;">✗</span> NO, SORRY';
+        }
+        
+        // Hide apology message
+        function hideApologyMessage() {
+            document.getElementById('apologyMessage').style.display = 'none';
+            document.querySelector('.buttons-container').style.display = 'flex';
+        }
+        
+        // Create celebration effect for YES
+        function createCelebration() {
+            // Create floating hearts
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '💖';
+                    heart.style.position = 'fixed';
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.top = '100vh';
+                    heart.style.fontSize = '25px';
+                    heart.style.zIndex = '9999';
+                    heart.style.animation = `flyUp ${Math.random() * 2 + 1}s ease-out forwards`;
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 2000);
+                }, i * 100);
+            }
+            
+            // Add flying animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes flyUp {
+                    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+                    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Show success message
+            setTimeout(() => {
+                const message = document.createElement('div');
+                message.innerHTML = '💖 You just made someone the happiest person! 💫';
+                message.style.position = 'fixed';
+                message.style.top = '20%';
+                message.style.left = '50%';
+                message.style.transform = 'translate(-50%, -50%)';
+                message.style.background = 'var(--container-bg)';
+                message.style.padding = '20px 30px';
+                message.style.borderRadius = '15px';
+                message.style.boxShadow = '0 15px 35px var(--shadow-color)';
+                message.style.zIndex = '10000';
+                message.style.textAlign = 'center';
+                message.style.fontWeight = '600';
+                message.style.color = '#ff3366';
+                message.style.border = '2px solid #ff3366';
+                message.style.fontSize = '1.2rem';
+                document.body.appendChild(message);
+                
+                setTimeout(() => {
+                    message.remove();
+                }, 3000);
+            }, 1500);
+        }
+        
+        // Add ripple effect on click
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('btn') || e.target.classList.contains('close-btn')) {
+                const btn = e.target;
+                btn.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    btn.style.transform = '';
+                }, 150);
+            }
+        });
+        
+        // Add name hover effect
+        const nameElement = document.querySelector('.name');
+        nameElement.addEventListener('mouseenter', () => {
+            nameElement.style.transform = 'scale(1.05)';
+        });
+        
+        nameElement.addEventListener('mouseleave', () => {
+            nameElement.style.transform = 'scale(1)';
+        });
+        
+        // Add animation styles
+        const animationStyles = document.createElement('style');
+        animationStyles.textContent = `
+            @keyframes heartBeat {
+                0%, 100% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+            }
+        `;
+        document.head.appendChild(animationStyles);
+        
+        // Auto-show music player hint after 5 seconds
+        setTimeout(() => {
+            if (!isMusicPlaying) {
+                const hint = document.createElement('div');
+                hint.innerHTML = '🎵 Click the music button for romantic background music!';
+                hint.style.position = 'fixed';
+                hint.style.bottom = '70px';
+                hint.style.right = '20px';
+                hint.style.background = 'rgba(255, 51, 102, 0.9)';
+                hint.style.color = 'white';
+                hint.style.padding = '12px 20px';
+                hint.style.borderRadius = '10px';
+                hint.style.boxShadow = '0 10px 25px rgba(0,0,0,0.3)';
+                hint.style.zIndex = '1001';
+                hint.style.fontSize = '0.9rem';
+                hint.style.fontWeight = '600';
+                hint.style.maxWidth = '250px';
+                hint.style.animation = 'fadeIn 0.5s ease';
+                document.body.appendChild(hint);
+                
+                setTimeout(() => {
+                    hint.style.animation = 'fadeIn 0.5s ease reverse';
+                    setTimeout(() => {
+                        hint.remove();
+                    }, 500);
+                }, 4000);
+            }
+        }, 5000);
+    </script>
+</body>
+</html>
