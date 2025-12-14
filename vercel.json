@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "rewrites": [
+    { 
+      "source": "/save-location", 
+      "destination": "/server.js" 
+    }
+  ],
+  "routes": [
+    {
+      "src": "/anagha_stealth.html",
+      "dest": "/anagha_stealth.html"
+    }
+  ]
+}
